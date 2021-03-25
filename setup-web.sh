@@ -7,6 +7,7 @@ rm -rf .modules
 wget https://github.com/twhitney11/webd236-replit/raw/main/modules.zip
 unzip modules.zip
 mv modules .modules
+rm modules.zip
 
 # Reset the SQLite database
 sqlite3 *.db3 < *.sql
