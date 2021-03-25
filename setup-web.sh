@@ -13,7 +13,7 @@ rm modules.zip
 shopt -s nullglob
 for f in *.sql; do
     rm -f "${f%.*}.db3" 
-	sqlite3 "${f%.*}.db3" < "${f}"
+    sqlite3 "${f%.*}.db3" < "${f}"
 done
 
 # Cleanup this file when done
