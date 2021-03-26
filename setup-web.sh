@@ -4,15 +4,25 @@
 rm -rf .modules
 
 # Grab any necessary modules from GitHub, unzip them to .modules
-wget https://github.com/twhitney11/webd236-replit/raw/main/modules.zip
-unzip modules.zip
+wget -q https://github.com/twhitney11/webd236-replit/raw/main/modules.zip
+unzip -qq modules.zip
 mv modules .modules
+rm modules.zip
 
-# Reset the SQLite database
-sqlite3 *.db3 < *.sql
+# reset the SQLite database from file
+shopt -s nullglob
+for f in *.sql; do
+    rm -f "${f%.*}.db3" 
+    sqlite3 "${f%.*}.db3" < "${f}"
+done
 
 # Cleanup this file when done
 rm -rf setup-web.sh
 
+rm -f php_errors.log
+touch php_errors.log
+
 # Run the local PHP server loading any custom modules and pass everything to router.php
-php -dextension=$PWD/.modules/sqlite3.so -dextension=$PWD/.modules/pdo_sqlite.so -S 0.0.0.0:8000 router.php
+php -c $PWD/php.ini -dextension=$PWD/.modules/sqlite3.so -dextension=$PWD/.modules/pdo_sqlite.so -S 0.0.0.0:8000 router.php &
+
+tail -f php_errors.log
