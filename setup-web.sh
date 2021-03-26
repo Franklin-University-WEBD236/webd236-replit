@@ -4,8 +4,7 @@
 # Check if there are zombie processes and restart the init if there are
 STR=`ps aux`
 if [[ "$STR" == *"php"* ]]; then
-  pkill php
-  pkill init
+  killall -u runner; 
 fi
 
 # Remove leftover modules directory
