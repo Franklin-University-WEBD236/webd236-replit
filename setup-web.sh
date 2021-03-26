@@ -1,10 +1,9 @@
 #!/bin/bash
 # Tyler Whitney & Todd Whittaker for WEBD 236 Replit Container
 
-# Check if there are zombie processes and restart the init if there are
-STR=`ps aux`
-if [[ "$STR" == *"php"* ]]; then
-  killall -u runner; 
+if test -f ".running"; then
+  rm .running
+  killall -u runner
 fi
 
 # Remove leftover modules directory
@@ -28,6 +27,7 @@ rm -rf setup-web.sh
 
 rm -f php_errors.log
 touch php_errors.log
+touch .running
 
 # Run the local PHP server loading any custom modules and pass everything to router.php
 php -c $PWD/php.ini -dextension=$PWD/.modules/sqlite3.so -dextension=$PWD/.modules/pdo_sqlite.so -S 0.0.0.0:8000 router.php &
