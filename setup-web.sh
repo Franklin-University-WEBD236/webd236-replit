@@ -2,7 +2,7 @@
 # Tyler Whitney & Todd Whittaker for WEBD 236 Replit Container
  
 FILE = ".running"
-if [ -f $FILE]; then
+if [ -f $FILE ]; then
   rm -f .running
   killall -u runner
 fi
