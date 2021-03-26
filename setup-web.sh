@@ -27,7 +27,6 @@ rm -rf setup-web.sh
 
 rm -f php_errors.log
 touch php_errors.log
-touch .running
 
 # Run the local PHP server loading any custom modules and pass everything to router.php
 php -c $PWD/php.ini -dextension=$PWD/.modules/sqlite3.so -dextension=$PWD/.modules/pdo_sqlite.so -S 0.0.0.0:8000 router.php &
