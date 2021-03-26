@@ -2,7 +2,7 @@
 # Tyler Whitney & Todd Whittaker for WEBD 236 Replit Container
 
 if test -f ".running"; then
-  rm .running
+  rm -f ".running"
   killall -u runner
 fi
 
