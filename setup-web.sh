@@ -3,6 +3,7 @@
 
 if test -f ".running"; then
   rm -f ".running"
+  echo "killing it"
   killall -u runner
 fi
 
