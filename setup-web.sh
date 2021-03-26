@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [[ ps aux == *"<defunct>"* ]]; then
+  pkill init; 
+fi
+
 # Remove leftover modules directory
 rm -rf .modules
 
