@@ -3,7 +3,8 @@
  
 STR=`ps aux`
 if [[ "$STR" == *"<defunct>"* ]]; then
-  killall -u runner
+  #killall -u runner
+  ps -ef | grep defunct | grep -v grep | cut -b8-20 | xargs kill -9
 fi
 
 # Remove leftover modules directory
