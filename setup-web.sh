@@ -3,7 +3,7 @@
 
 # Check if there are zombie processes and restart the init if there are
 STR=`ps aux`
-if [[ "$STR" == *"php"* ]]; then
+if [[ "$STR" == *"defunct"* ]]; then
   killall -u runner; 
 fi
 
