@@ -1,9 +1,11 @@
 #!/bin/bash
 # Tyler Whitney & Todd Whittaker for WEBD 236 Replit Container
  
-FILE = ".running"
-if [ -f $FILE ]; then
-  rm -f .running
+pkill tail
+pkill php
+
+$STR = `ps aux`
+if "$STR" == *"$STR"*; then
   killall -u runner
 fi
 
