@@ -23,7 +23,7 @@ for f in *.sql; do
 done
 
 # Cleanup this file when done
-#rm -rf setup-web.sh
+rm -rf setup-web.sh
 
 rm -f php_errors.log
 touch php_errors.log
