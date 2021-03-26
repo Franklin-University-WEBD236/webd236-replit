@@ -4,7 +4,7 @@
 pkill tail
 pkill php
 
-$STR = `ps aux`
+STR = `ps aux`
 if "$STR" == *"$STR"*; then
   killall -u runner
 fi
