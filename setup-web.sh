@@ -3,7 +3,7 @@
 
 if test -f ".running"; then
   rm -f ".running"
-  killall -u runner
+  pkill init
 fi
 
 # Remove leftover modules directory
