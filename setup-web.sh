@@ -1,4 +1,5 @@
 #!/bin/bash
+# Tyler Whitney & Todd Whittaker for WEBD 236 Replit Container
 
 # Check if there are zombie processes and restart the init if there are
 if [[ `ps aux` == *"<defunct>"* ]]; then
