@@ -1,7 +1,8 @@
 #!/bin/bash
 
+# Check if there are zombie processes and restart the init if there are
 if [[ ps aux == *"<defunct>"* ]]; then
-  pkill init; 
+  pkill init
 fi
 
 # Remove leftover modules directory
