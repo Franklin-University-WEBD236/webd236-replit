@@ -1,9 +1,9 @@
 #!/bin/bash
 # Tyler Whitney & Todd Whittaker for WEBD 236 Replit Container
-
-if test -f ".running"; then
-  rm -f ".running"
-  echo "killing it"
+ 
+FILE = ".running"
+if [ -f $FILE; then
+  rm -f .running
   killall -u runner
 fi
 
@@ -28,7 +28,7 @@ rm -rf setup-web.sh
 
 rm -f php_errors.log
 touch php_errors.log
-touch ".running"
+touch .running
 
 # Run the local PHP server loading any custom modules and pass everything to router.php
 php -c $PWD/php.ini -dextension=$PWD/.modules/sqlite3.so -dextension=$PWD/.modules/pdo_sqlite.so -S 0.0.0.0:8000 router.php &
